@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+.block {
+    width: 150px;
+    height: 150px;
+    background-color: gray;
+    display: inline-block;
+    margin: 5px;
+}
