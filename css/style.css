@@ -6,10 +6,15 @@
     width: 60%;
     margin: 0 auto;
 }
-.block {
-    width: 150px;
-    height: 150px;
+.card {
+    width: 155px;
+    height: 155px;
     background-color: gray;
-    display: inline-block;
+    float: left;
     margin: 5px;
+}
+
+
+.back {
+  display: none;
 }

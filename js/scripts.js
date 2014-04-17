@@ -1,25 +1,37 @@
-"use strict";
-
-
-var $wrapper = $('.wrapper');
-
-var Card = function() {
-    this.html = '<div class="block"></div>';
-    this.color = '#f22ed9';
-}
-var cards = [];
-    for(var i =0; i<8; i++) {
-        cards.push(new Card());
-        $wrapper.append(cards[i]);
-}
-
 $(document).ready(function() {
-    for(var i =0; i<8; i++) {
-        if(cards[i].html !== undefined) {
-            $wrapper.append(cards[i].html);
-        } else {
-            console.log("nie ma !");
-        }
+
+    var i = 0;
+    var previousClick = 0;
+    $('.wrapper').on("click", ".card", function() {
+        toggleCard($(this));
+        i++;
         
+        if(i === 1) {
+            console.log("first click");
+            previousClick = $(this);
+        } else if(i === 2) {
+            if( (previousClick.data("card") === $(this).data("card")) && previousClick !== $(this)) {
+                // previousClick.css("visibility", "hidden");
+                // $(this).css("visibility", "hidden");
+                previousClick.animate({opacity: 0});
+                $(this).animate({opacity: 0});
+                
+            }
+        } else if( i > 2) {
+            hideAll();
+            i = 0;
+        }
+    });
+
+
+    var toggleCard = function(Card) {
+        Card.find('.front').toggle();
+        Card.find('.back').toggle();
     }
+    var hideAll = function() {
+        $('.card').each(function() {
+            $(this).find('.back').hide();
+        })
+    }
+    
 });
