@@ -7,7 +7,6 @@ $(document).ready(function() {
         i++;
         
         if(i === 1) {
-            console.log("first click");
             previousClick = $(this);
         } else if(i === 2) {
             if( (previousClick.data("card") === $(this).data("card")) && previousClick !== $(this)) {
